@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar v-if="!mobileView" />
+
     <v-app>
       <router-view />
     </v-app>
-    <br/>
-    <br/>
     <ContactInformation />
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -20,7 +19,19 @@ export default {
   components: {
     ContactInformation,
     Navbar,
-    Footer
+    Footer,
+  },
+  created() {
+    this.handleView();
+    window.addEventListener("resize", this.handleView);
+  },
+  data:()=>({mobileView: false,
+      showNav: false,}), 
+  
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 600;
+    },
   },
 };
 </script>
@@ -43,6 +54,7 @@ export default {
 @import url(./assets/fonts/icomoon/style.css);
 body {
   font-family: Interstate !important;
+  overflow-x: hidden;
 }
 
 h1,
@@ -52,6 +64,7 @@ h5,
 h6 {
   font-family: LucidaSans !important;
   font-style: italic;
+  margin-bottom: 0 !important;
 }
 :root {
   --main-color: #ec2027;
@@ -68,13 +81,14 @@ p {
   color: var(--dark-color);
   font-family: Interstate !important;
   font-size: 16px;
-  /* opacity: 0.7; */
+  line-height: 1.8;
 }
 h4 {
   font-size: 18px !important;
   line-height: 30px !important;
   color: var(--dark-color);
-  font-weight:600 !important
+  font-weight: 600 !important;
+  opacity: 0.8;
 }
 .main-button {
   background: var(--main-color);
@@ -90,16 +104,27 @@ h4 {
   color: #fff;
   padding: 10px 20px;
   border-radius: 4px;
-    font-weight: bold;
+  font-weight: bold;
   text-transform: capitalize;
 }
-hr {
-  border: 1px solid var(--grey);
+
+#section-title {
+  color: var(--main-color);
+  font-style: italic;
+  font-size: 1.7rem !important;
+  font-weight: 600;
 }
-#section-title{
-      color:var(--main-color);
-    font-style:italic;
-    font-size:1.7rem !important;
-    font-weight:600
+#navigation-icon {
+  padding: 10px 10px 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.content {
+  position: absolute;
+  top: 50px;
+  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+}
+.open {
+  transform: translateX(250px);
 }
 </style>

@@ -1,7 +1,8 @@
 <template id="Agenda">
   <div class="container">
     <h2 id="section-title">Agenda</h2>
-    <hr />
+    <Hr />
+
     <h4>
       The summit will be an in-person event that will kick off with a
       Demo-Flight and welcome event sponsored by Embraer at Jomo Kenyatta
@@ -18,12 +19,23 @@
       option of booking a highly subsidized Safari for either 3, 5 or days. The
       details will be provided in the registration website.
     </p>
-    <button class="main-button">view agenda</button>
+    <button class="main-button" @click="goToAgenda()">view agenda</button>
   </div>
 </template>
 <script>
+import Hr from "../Hr.vue";
 export default {
   name: "Agenda",
+  components: {
+    Hr,
+  },
+  methods: {
+    goToAgenda() {
+      this.$router.push({
+        name: "Agenda",
+      });
+    },
+  },
 };
 </script>
 <style scoped>

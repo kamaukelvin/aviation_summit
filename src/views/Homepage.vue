@@ -5,8 +5,7 @@
       <Agenda/>
       <Speakers/>
       <div class="d-md-block">
-      <br/>
-      <br/>
+     
       </div>
       <Venue/>
     </div>
@@ -26,9 +25,7 @@ Agenda,
 Speakers,
 Venue
     },
-	data() {
-	return{}
-	},
+	
 };
 </script>
 <style lang="scss">

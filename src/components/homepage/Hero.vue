@@ -3,56 +3,64 @@
     <div id="hero">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6 plane"></div>
+          <div class="col-12 col-md-6">
+            <img :src="Plane" alt="" class=" plane" />
+          </div>
           <div class="col-12 col-md-6 ">
             <h1 class="hero-text">
               Africa Aviation<br />
               Innovation Summit
             </h1>
-            <h4 class="mt-md-5 text-white">
+            <h4 class="mt-md-5 text-white opacity-100">
               November 22nd - 24th <br />Nairobi, Kenya
             </h4>
             <p class="text-white opacity-100 ">
               In-person event at Ole Sereni hotel
             </p>
-            <div class="partners" />
+            <!-- <div class="partners" /> -->
+            <div><img :src="Partners" alt="" class="partners" /></div>
           </div>
         </div>
       </div>
-      <h2 class="text-center">
+      <h2 class="text-center ">
         “Re-imagining aviation in a post-covid world”
       </h2>
       <span class="text-center d-block my-md-5">
         <button class="main-button">Register Today</button>
       </span>
 
-      <small class="text-center d-block">Read More</small>
-      <!-- <div class="skew-right" />
-    <div class="skew-left" /> -->
+      <small class="text-center d-block pb-4">Read More</small>
       <a href="#about">
         <div class="scroll-down" />
       </a>
+      <div class="p-relative">
+        <div class="skew-right" />
+        <div class="skew-left" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Partners from "../../assets/partners.png";
+import Plane from "../../assets/plane.png";
 export default {
   name: "Hero",
+  data: () => ({ Partners, Plane }),
 };
 </script>
 <style>
 #hero {
   background-image: url("../../assets/sky.png");
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 50px);
   background-size: cover;
   background-position: bottom;
   color: #fff;
   position: relative;
   padding: 1rem 0 1rem 0;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%); */
   z-index: 1000;
 }
-.wave {
+/* .wave {
   display: inline-block;
   position: relative;
   max-height: calc(100vh - 80px);
@@ -60,16 +68,18 @@ export default {
   background: var(--main-color);
   box-sizing: border-box;
   clip-path: polygon(0% 0%, 100% 0%, 100% 87%, 50% 100%, 0% 87%);
-}
+} */
 .hero-text {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   font-size: 50px;
+  padding: 0.75em 0 0;
 }
 
 .plane {
-  background-image: url("../../assets/plane.png");
-  background-position: center;
-  background-size: contain;
+  object-fit: contain;
+  object-position: left;
+  width: 100%;
+  height: 100%;
 }
 .skew-right {
   z-index: 10;
@@ -80,6 +90,7 @@ export default {
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
+
 .skew-left {
   z-index: 10;
   position: absolute;
@@ -94,20 +105,21 @@ export default {
   overflow: hidden;
 }
 .partners {
-  background: url("../../assets/partners.png") no-repeat center/contain;
-  height: 100px;
-  /* margin: 2em 0; */
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 .scroll-down {
   height: 40px;
   width: 40px;
   border: 2px solid var(--secondary-color);
   position: absolute;
-  left: 49%;
+  left: 48.5%;
   bottom: -20px;
   border-radius: 50px;
   cursor: pointer;
   background-color: var(--secondary-color);
+  z-index: 1000;
 }
 .scroll-down::before,
 .scroll-down::after {
@@ -143,19 +155,13 @@ export default {
   }
 }
 @media only screen and (max-width: 600px) {
-  .plane {
-    height: 250px;
-  }
   #hero {
     padding: 0rem 0 1rem 0;
   }
   .hero-text {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    font-size: 45px;
-  }
-  .partners {
-    background: url("../../assets/partners.png") no-repeat center/contain;
-    margin: 0;
+    font-size: 40px;
+    padding: 0;
   }
 }
 </style>

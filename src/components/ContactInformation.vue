@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 id="section-title">Contact Information</h2>
-    <hr />
+    <Hr />
     <p>For more information about this workshop please contact</p>
     <div class="row">
       <div class="col-md-6">
@@ -27,7 +27,7 @@
 
       <div class="col-md-12 mt-md-5 mt-3">
         <h1>Karibuni Nyote!</h1>
-        <hr class="mb-0" />
+        <Hr />
       </div>
       <div class="col-md-6">
         <div class="karibuni">
@@ -43,13 +43,21 @@
           </button>
         </div>
       </div>
-      <div class="col-md-12 partners" />
+      <div class="col-md-12">
+        <img :src="Partners" alt="" class="partners" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Hr from "./Hr.vue";
+import Partners from '../assets/partners.png'
 export default {
   name: "Contact",
+  components: {
+    Hr,
+  },
+  data:()=>({Partners})
 };
 </script>
 <style scoped>
@@ -74,18 +82,13 @@ ul li {
   font-size: 14px;
 }
 .partners {
-  background: url("../assets/partners.png") no-repeat center/cover;
-  height: 155px;
-  margin: 4rem 0;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
 }
 .karibuni {
   color: var(--dark-red);
   font-size: 20px;
-}
-@media only screen and (max-width: 600px) {
-  .partners {
-    background: url("../assets/partners.png") no-repeat center/contain;
-    margin: 0;
-  }
 }
 </style>

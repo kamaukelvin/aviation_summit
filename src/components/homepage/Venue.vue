@@ -1,6 +1,6 @@
 <template>
   <div id="venue" class="my-md-5">
-    <div class="bg--img" />
+    <img :src="Sereni" alt="" class="bg--img"/>
     <div class="venue--excerpt">
       <div class="container">
         <h2 class="font-weight-bold">Venue</h2>
@@ -12,19 +12,24 @@
           perfect blend of service excellence, quality accommodation and
           quintessential conference facility.
         </p>
-        <button class="secondary-button">Read More</button>
+        <button class="secondary-button" @click="goToVenue()">Read More</button>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Sereni from "../../assets/ole-sereni.png";
+import Sereni from "../../assets/ole-sereni.jpg";
 export default {
   name: "Venue",
-  data() {
-    return {
+  data:()=>({
       Sereni,
-    };
+    }),
+  methods: {
+    goToVenue() {
+      this.$router.push({
+        name: "Venue",
+      });
+    },
   },
 };
 </script>
@@ -32,36 +37,36 @@ export default {
 #venue {
   display: flex;
   flex-wrap: wrap;
+  position:relative
 }
 .bg--img {
-  background: url("../../assets/ole-sereni.png") no-repeat top/auto;
-  width: 40%;
-  z-index: 100;
+  object-fit: cover;
+  width:40%;
+  min-height: 23em;
+  z-index:1
+
 }
 .venue--excerpt {
   background: var(--secondary-color);
-  padding: 50px;
-  width: 60%;
-  height: 33em;
-  margin-top: -40px;
-  margin-left: -40px;
+  padding: 80px;
+  width: 63%;
+  min-height: calc(23em + 80px);
+position:absolute;
+right:0;
+top:-40px;
 }
 h2 {
   color: var(--dark-red);
 }
 @media only screen and (max-width: 600px) {
   .bg--img {
-    background: url("../../assets/ole-sereni.png") no-repeat center/cover;
-  width: 100%;
-  height:300px
+   width:100%
   }
   .venue--excerpt {
-  padding: 12px;
-  width: 100%;
-  height: auto;
-  margin-top: 0px;
-  margin-left: 0px;
-}
-
+    position:relative;
+    width:100%;
+    padding:12px;
+    top:0
+  }
 }
 </style>

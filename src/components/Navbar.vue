@@ -3,25 +3,27 @@
     <nav class="navbar navbar-light py-0 ">
       <div class="container ">
         <a class="navbar-brand"><img class="logo" :src="Logo" alt="Logo"/></a>
-        <button
-          class="navbar-toggler d-md-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="navbar-links d-none d-md-block">
           <ul>
-            <li><a href="#" class="active"> Home</a></li>
-            <li><a href="#Agenda">Agenda</a></li>
-            <li><a href="#Speakers">Speakers</a></li>
-            <li><a href="#venue">Venue</a></li>
-            <li><a href="#Contact">Contact</a></li>
+            <li>
+              <router-link class="" :to="{ name: 'Homepage' }">
+                Home</router-link
+              >
+            </li>
+            <li>
+              <router-link class="" :to="{ name: 'Agenda' }">
+                Agenda</router-link
+              >
+            </li>
+            <li>
+              <router-link class="" :to="{ name: 'Speakers' }">
+                Speakers</router-link
+              >
+            </li>
+            <li>
+              <router-link class="" :to="{ name: 'Venue' }"> Venue</router-link>
+            </li>
+            <li><a href="#Contact">Register</a></li>
           </ul>
         </div>
       </div>
@@ -32,14 +34,16 @@
 import Logo from "../assets/kq-logo-main.png";
 export default {
   name: "Navbar",
-  data() {
-    return { Logo };
-  },
+  data:()=>
+     ({ Logo })
+
 };
 </script>
 <style scoped>
 .logo {
-  max-height: 40px;
+  object-fit: cover;
+  object-position: center;
+  height:100%;
   width: 100%;
 }
 .navbar-links {

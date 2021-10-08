@@ -3,7 +3,7 @@
     <div class="container ">
       <div class="row">
         <div class="col-md-2 logo">
-          <img :src="Logo" alt="Logo" />
+          <img :src="Logo" alt="Logo" class="footer-logo" />
         </div>
         <div class="col-md-10 footer-links">
           <ul>
@@ -23,9 +23,7 @@
 import Logo from "../assets/kq-logo.png";
 export default {
   name: "Footer",
-  data() {
-    return { Logo };
-  },
+  data:()=>({Logo})
 };
 </script>
 <style scoped>
@@ -34,11 +32,13 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.logo img {
-  max-height: 80px;
+.footer-logo {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
 }
 .footer {
-  max-height: 120px;
   width: 100%;
   background: #03180d;
   color: #fff;
