@@ -8,15 +8,23 @@
       for economic growth and development.
     </h4>
     <div class="row mt-md-4">
-      <div class="col-md-4" v-for="(speaker, index) in featuredSpeakers" :key="index">
-        <a type="button" @click="openModal">
-      <SpeakerCard :image="speaker.image" :title="speaker.title" :name="speaker.name"/>
-      </a>
+      <div
+        class="col-md-4"
+        v-for="(speaker, index) in featuredSpeakers"
+        :key="index"
+      >
+        <a type="button">
+          <SpeakerCard
+            :image="speaker.image"
+            :title="speaker.title"
+            :name="speaker.name"
+          />
+        </a>
       </div>
-      
-     
     </div>
-    <button class="main-button" @click="goToSpeakers()">see more speakers</button>
+    <button class="main-button" @click="goToSpeakers()">
+      see more speakers
+    </button>
   </div>
 </template>
 <script>
@@ -24,31 +32,32 @@ import Speaker1 from "../../assets/speaker-1.png";
 import Speaker2 from "../../assets/speaker-2.png";
 import Speaker3 from "../../assets/speaker-3.png";
 import SpeakerCard from "../SpeakerCard.vue";
-import Hr from '../Hr.vue'
+import Hr from "../Hr.vue";
 export default {
   name: "Speakers",
-  data:()=>({
-      featuredSpeakers:[
-        {
-        name:"Martin Kibisu",
-        title:"Research & Development Lead, Kenya Airways",
-        image:Speaker1
+  data: () => ({
+    featuredSpeakers: [
+      {
+        name: "Martin Kibisu",
+        title: "Research & Development Lead, Kenya Airways",
+        image: Speaker1,
       },
-        {
-        name:"Grace Vihenda",
-        title:"Innovation Hub Lead – Business Development & Strategy Kenya, Airways",
-        image:Speaker2
+      {
+        name: "Grace Vihenda",
+        title:
+          "Innovation Hub Lead – Business Development & Strategy Kenya, Airways",
+        image: Speaker2,
       },
-        {
-        name:"John Dough",
-        title:"Research & Development Lead, Kenya Airways",
-        image:Speaker3
-      }
-      ]
-    }),
-  components:{
+      {
+        name: "John Dough",
+        title: "Research & Development Lead, Kenya Airways",
+        image: Speaker3,
+      },
+    ],
+  }),
+  components: {
     Hr,
-    SpeakerCard
+    SpeakerCard,
   },
   methods: {
     goToSpeakers() {
@@ -59,6 +68,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

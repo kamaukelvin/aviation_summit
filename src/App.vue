@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <Navbar v-if="!mobileView" />
-
+    <MobileMenu
+      @menu="open"
+      :isDrawerOpen="isDrawerOpen"
+      :menuOpen="menuOpen"
+      v-if="mobileView"
+    />
     <v-app>
       <router-view />
     </v-app>
@@ -14,23 +19,41 @@
 import ContactInformation from "./components/ContactInformation.vue";
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer";
+import MobileMenu from "./components/MobileMenu.vue";
 export default {
   name: "App",
   components: {
     ContactInformation,
     Navbar,
     Footer,
+    MobileMenu,
   },
   created() {
     this.handleView();
     window.addEventListener("resize", this.handleView);
   },
-  data:()=>({mobileView: false,
-      showNav: false,}), 
-  
+  data: () => ({ mobileView: false, showNav: false, isDrawerOpen: false }),
+
   methods: {
     handleView() {
       this.mobileView = window.innerWidth <= 600;
+    },
+    open() {
+      const menuBtn = document.querySelector(".menu-btn");
+      if (!this.menuOpen) {
+        menuBtn.classList.add("open");
+        console.log("menu btn on true state", menuBtn);
+
+        this.menuOpen = true;
+        this.isDrawerOpen = true;
+        console.log("hiya", this.menuOpen);
+      } else if (this.menuOpen) {
+        console.log("menu btn on false state", menuBtn);
+        menuBtn.classList.remove("open");
+        this.menuOpen = false;
+        this.isDrawerOpen = false;
+        console.log("menu ", this.menuOpen);
+      }
     },
   },
 };
@@ -97,7 +120,7 @@ h4 {
   border-radius: 4px;
   text-transform: capitalize;
   font-weight: bold;
-  margin: 1em 0;
+  margin: 0.4em 0;
 }
 .secondary-button {
   background: var(--dark-red);
@@ -126,5 +149,10 @@ h4 {
 }
 .open {
   transform: translateX(250px);
+}
+@media only screen and (max-width: 600px) {
+  .main-button {
+    margin: 0.5em 0;
+  }
 }
 </style>

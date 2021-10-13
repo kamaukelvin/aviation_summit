@@ -4,6 +4,7 @@ import Homepage from "../views/Homepage.vue";
 import Agenda from "../views/Agenda.vue";
 import Speakers from "../views/Speakers.vue";
 import Venue from "../views/Venue.vue";
+import Register from "../views/Register.vue";
 // import SpeakerModal from "../components/modals/SpeakerModal";
 // Vue.component("SpeakerModal", SpeakerModal);
 
@@ -29,6 +30,11 @@ const routes = [
     path: "/venue",
     name: "Venue",
     component: Venue,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
   },
 
   // redirect incase user types navigates to a wrong path route

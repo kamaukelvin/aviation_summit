@@ -23,7 +23,11 @@
             <li>
               <router-link class="" :to="{ name: 'Venue' }"> Venue</router-link>
             </li>
-            <li><a href="#Contact">Register</a></li>
+            <li>
+              <router-link class="" :to="{ name: 'Register' }"
+                >Register</router-link
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -34,16 +38,14 @@
 import Logo from "../assets/kq-logo-main.png";
 export default {
   name: "Navbar",
-  data:()=>
-     ({ Logo })
-
+  data: () => ({ Logo }),
 };
 </script>
 <style scoped>
 .logo {
   object-fit: cover;
   object-position: center;
-  height:100%;
+  height: 100%;
   width: 100%;
 }
 .navbar-links {

@@ -3,7 +3,7 @@
     <div id="hero">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 ">
             <img :src="Plane" alt="" class=" plane" />
           </div>
           <div class="col-12 col-md-6 ">
@@ -11,7 +11,7 @@
               Africa Aviation<br />
               Innovation Summit
             </h1>
-            <h4 class="mt-md-5 text-white opacity-100">
+            <h4 class="mt-4 text-white opacity-100">
               November 22nd - 24th <br />Nairobi, Kenya
             </h4>
             <p class="text-white opacity-100 ">
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <h2 class="text-center ">
+      <h2 class="text-center py-3">
         “Re-imagining aviation in a post-covid world”
       </h2>
       <span class="text-center d-block my-md-5">
@@ -43,15 +43,31 @@
 <script>
 import Partners from "../../assets/partners.png";
 import Plane from "../../assets/plane.png";
+
 export default {
   name: "Hero",
-  data: () => ({ Partners, Plane }),
+
+  data() {
+    return {
+      Partners,
+      Plane,
+    };
+  },
+  methods: {
+    onClickOutside() {
+      console.log("drawer ficja");
+    },
+  },
+  // beforeDestroy() {
+  //   Event.$off("menu", this.open);
+  // },
 };
 </script>
 <style>
 #hero {
   background-image: url("../../assets/sky.png");
-  max-height: calc(100vh - 50px);
+  /* min-height: calc(100vh - 50px); */
+  min-height: calc(0.664 * 100vw);
   background-size: cover;
   background-position: bottom;
   color: #fff;
@@ -72,7 +88,7 @@ export default {
 .hero-text {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   font-size: 50px;
-  padding: 0.75em 0 0;
+  padding: 0.5em 0 0;
 }
 
 .plane {
@@ -82,21 +98,34 @@ export default {
   height: 100%;
 }
 .skew-right {
-  z-index: 10;
+  /* z-index: 10; */
   position: absolute;
   right: 0;
   bottom: 0;
+
   border-width: 0 0 11vh 50vw;
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
+/* .skew-right::before {
+  
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 0 0 11vh 50vw;
+  border-style: solid;
+  border-color: transparent transparent red transparent; */
+  /* transform: rotate(180deg); */
+/* } */
 
 .skew-left {
-  z-index: 10;
+  /* z-index: 10; */
   position: absolute;
   left: 0;
   bottom: 0;
-  border-width: 11vh 0 0 50vw;
+  border-width: 9vh 0 0 50vw;
   border-style: solid;
   border-color: #fff transparent transparent transparent;
   transform: rotate(-180deg);
@@ -114,12 +143,12 @@ export default {
   width: 40px;
   border: 2px solid var(--secondary-color);
   position: absolute;
-  left: 48.5%;
+  left: 48.7%;
   bottom: -20px;
   border-radius: 50px;
   cursor: pointer;
   background-color: var(--secondary-color);
-  z-index: 1000;
+  z-index: 5;
 }
 .scroll-down::before,
 .scroll-down::after {
@@ -139,6 +168,10 @@ export default {
   top: 30%;
   animation-delay: 0.3s;
 }
+.menu-cover {
+  position: relative;
+}
+
 @keyframes scroll-down {
   0% {
     opacity: 0;
@@ -160,8 +193,25 @@ export default {
   }
   .hero-text {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    font-size: 40px;
+    font-size: 35px;
     padding: 0;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .skew-right {
+    border-width: 0 0 3vh 50vw;
+  }
+  .skew-left {
+    border-width: 3vh 0 0 50vw;
+  }
+  .scroll-down {
+    left: 45.5%;
+  }
+}
+@media (min-width: 768px) {
+  #hero {
+    min-height: 100vh;
   }
 }
 </style>
