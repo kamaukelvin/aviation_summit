@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 @font-face {
   font-family: "Interstate";
   src: url("./assets/fonts/interstate/Interstate-bold.ttf");

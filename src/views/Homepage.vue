@@ -20,7 +20,7 @@ export default {
 	name: 'Homepage',
     components:{
 Hero,
-About,
+ About,
 Agenda,
 Speakers,
 Venue

@@ -116,9 +116,9 @@ export default {
   bottom: 0;
   border-width: 0 0 11vh 50vw;
   border-style: solid;
-  border-color: transparent transparent red transparent; */
-  /* transform: rotate(180deg); */
-/* } */
+  border-color: transparent transparent red transparent; 
+  transform: rotate(180deg);
+ }  */
 
 .skew-left {
   /* z-index: 10; */
