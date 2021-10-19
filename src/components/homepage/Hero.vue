@@ -33,10 +33,10 @@
       <a href="#about">
         <div class="scroll-down" />
       </a>
-      <div class="p-relative">
+      <!-- <div class="p-relative">
         <div class="skew-right" />
         <div class="skew-left" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -73,7 +73,7 @@ export default {
   color: #fff;
   position: relative;
   padding: 1rem 0 1rem 0;
-  /* clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%); */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
   z-index: 1000;
 }
 /* .wave {
